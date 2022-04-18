@@ -23,5 +23,9 @@ jobs:
         dpkg -i foundationdb-server_6.3.24-1_amd64.deb
         systemctl start foundationdb
     - name: Build
+      env: 
+        GO111MODULE: on
+        GOPRIVATE: github.com/emqx
+        CGO_ENABLED: 1
       run:  
         go build -v ./...
