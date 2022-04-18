@@ -29,4 +29,6 @@ jobs:
         GOPRIVATE: github.com/emqx
         CGO_ENABLED: 1
       run:  
-        go build -v ./...
+        go mod tidy;
+        go build -v ./...;
+        ./testworkflow
