@@ -3,7 +3,8 @@ name: Go
 on:
   push:
     branches: [ main ]
-
+  workflow_dispatch:
+  
 jobs:
 
   build:
@@ -17,7 +18,10 @@ jobs:
         go-version: 1.18
 
     - name: Build
-      run: go build -v ./...
-
-    - name: Test
-      run: go test -v ./...
+      run: 
+        wget --no-check-certificate --content-disposition https://github.com/apple/foundationdb/releases/download/6.3.23/foundationdb-clients-6.3.23-1.el7.x86_64.rpm
+        wget --no-check-certificate --content-disposition https://github.com/apple/foundationdb/releases/download/6.3.23/foundationdb-server-6.3.24-1.el7.x86_64.rpm
+        sudo yum localinstall foundationdb-clients-6.3.24-1.el7.x86_64.rpm
+        sudo yum localinstall foundationdb-server-6.3.24-1.el7.x86_64.rpm
+        sudo systemctl start foundationdb
+        go build -v ./...
