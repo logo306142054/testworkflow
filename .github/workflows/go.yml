@@ -21,8 +21,8 @@ jobs:
         wget --no-check-certificate https://github.com/apple/foundationdb/releases/download/6.3.24/foundationdb-server_6.3.24-1_amd64.deb;
         sudo apt-get -y install ./foundationdb-clients_6.3.24-1_amd64.deb;        
         sudo apt-get -y install ./foundationdb-server_6.3.24-1_amd64.deb;
-        systemctl start foundationdb;
-        systemctl status foundationdb
+        sudo systemctl start foundationdb;
+        sudo systemctl status foundationdb
     - name: Build
       env: 
         GO111MODULE: on
