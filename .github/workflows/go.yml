@@ -38,9 +38,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: build
-    secrets:
-      USER: username
-      PASSWORD: password
     steps:
     - name: unit test
       run: go test ./...
