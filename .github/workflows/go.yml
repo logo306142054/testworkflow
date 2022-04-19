@@ -55,5 +55,3 @@ jobs:
         password: 'public'
     - name: Show Response
       run: echo ${{ steps.myRequest.outputs.response }}
-
-    - name:
