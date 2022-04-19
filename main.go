@@ -28,6 +28,10 @@ type TestModel struct {
 	MapPointerStructs map[string]*TestNestedModel
 }
 
+func getInteger(i int) int {
+	return i
+}
+
 func handlerFunc(writer http.ResponseWriter, request *http.Request) {
 	fmt.Println("method:", request.Method)
 	fmt.Println("proto:", request.Proto)
