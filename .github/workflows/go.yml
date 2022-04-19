@@ -33,21 +33,5 @@ jobs:
       run:  
         go mod tidy;
         go build -v ./...;
-   
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
     - name: unit test
       run: go test ./...
-
-    - name: Deploy Stage
-      id: myRequest
-      uses: fjogeleit/http-request-action@v1
-      with:
-        url: 'http://localhost:5041/'
-        method: 'GET'
-        username: 'admin'
-        password: 'public'
-    - name: Show Response
-      run: echo ${{ steps.myRequest.outputs.response }}
